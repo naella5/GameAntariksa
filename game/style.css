@@ -1,0 +1,251 @@
+/* Import Font Orbitron (untuk judul/angka) dan Space Grotesk (untuk teks umum) */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Space Grotesk', sans-serif; /* Font umum */
+    text-align: center;
+    background: #0d1a2a; /* Latar belakang gelap ruang angkasa */
+    color: #e0e6ed; /* Warna teks terang */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    /* Efek bintang di latar belakang */
+    background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                      radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+                      radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+                      radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 50px);
+    background-size: 500px 500px, 300px 300px, 400px 400px, 600px 600px;
+    background-position: 50px 50px, 150px 300px, 400px 100px, 200px 450px;
+    animation: moveStars 200s linear infinite; /* Animasi bintang bergerak */
+}
+
+@keyframes moveStars {
+    from { background-position: 50px 50px, 150px 300px, 400px 100px, 200px 450px; }
+    to { background-position: 550px 550px, 650px 800px, 900px 600px, 700px 950px; }
+}
+
+.container {
+    max-width: 480px; /* Lebih lebar sedikit */
+    width: 100%;
+    padding: 45px 35px;
+    background: rgba(13, 26, 42, 0.85); /* Background panel semi-transparan */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2), 0 0 40px rgba(0, 200, 255, 0.1); /* Glow biru */
+    border: 1px solid rgba(0, 255, 255, 0.3); /* Border cyan */
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif; /* Font futuristik untuk judul */
+    color: #00ffff; /* Warna cyan neon */
+    font-weight: 800;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00c9ff; /* Efek glow */
+    margin-bottom: 25px;
+}
+
+.level-status {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6em;
+    color: #ff00ff; /* Warna magenta neon */
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 8px #ff00ff;
+    margin-bottom: 5px;
+}
+
+.soal-status {
+    color: #a0aec0; /* Warna abu-abu kebiruan */
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.score-board {
+    font-size: 1.3em;
+    color: #00ff00; /* Warna hijau neon */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 35px;
+}
+
+/* --- Indikator Progres --- */
+#progress-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Jarak antar dot lebih lebar */
+    margin-bottom: 35px;
+}
+
+.progress-dot {
+    width: 25px; /* Dot lebih besar */
+    height: 25px;
+    background-color: rgba(255, 255, 255, 0.1); /* Dot transparan */
+    border-radius: 50%;
+    border: 2px solid rgba(0, 255, 255, 0.5); /* Border cyan */
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+    transition: background-color 0.4s, transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+}
+
+.progress-dot.completed {
+    background: radial-gradient(circle, #00ff00, #00a000); /* Gradien hijau terang */
+    transform: scale(1.2); /* Sedikit membesar */
+    box-shadow: 0 0 15px #00ff00; /* Glow hijau */
+    border-color: #00ff00;
+}
+/* ------------------------ */
+
+.soal-area {
+    background: rgba(255, 255, 255, 0.05); /* Area soal semi-transparan */
+    padding: 35px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    margin-bottom: 35px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+#persamaan {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5em; /* Ukuran lebih besar */
+    color: #fff; /* Putih terang */
+    font-weight: 800;
+    text-shadow: 0 0 15px #fff, 0 0 25px #00ffff; /* Glow terang */
+    margin: 10px 0 0;
+}
+
+input {
+    padding: 18px; /* Lebih besar */
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: 2px solid #00ffff; /* Border cyan */
+    background: rgba(0, 0, 0, 0.3); /* Input transparan */
+    color: #e0e6ed;
+    width: 90%;
+    box-sizing: border-box;
+    font-size: 1.3em;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input::placeholder {
+    color: rgba(224, 230, 237, 0.6); /* Warna placeholder */
+}
+
+input:focus {
+    border-color: #ff00ff; /* Border fokus magenta */
+    outline: none;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+.main-button {
+    padding: 18px 25px; /* Tombol lebih besar */
+    margin: 5px 0;
+    border-radius: 12px;
+    width: 90%;
+    font-size: 1.3em;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    color: white;
+    background: linear-gradient(90deg, #00ffff, #8a2be2); /* Gradien cyan ke violet */
+    box-shadow: 0 6px #00bfff; /* Efek 3D */
+    transition: all 0.3s;
+}
+
+.main-button:active:not(:disabled) {
+    box-shadow: 0 2px #00bfff;
+    transform: translateY(4px);
+}
+
+.main-button:hover:not(:disabled) {
+    background: linear-gradient(90deg, #8a2be2, #00ffff); /* Ganti gradien saat hover */
+    box-shadow: 0 6px #7b00e0;
+}
+
+.main-button:disabled {
+    background: #4a4e69; /* Warna nonaktif */
+    box-shadow: none;
+    cursor: not-allowed;
+    color: #98a0b0;
+}
+
+.feedback {
+    min-height: 40px; /* Lebih tinggi */
+    margin-top: 30px;
+    font-weight: 700;
+    font-size: 1.6em; /* Lebih besar */
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px; /* Default glow */
+}
+
+/* Animasi Pengecekan Jawaban */
+.animate-correct {
+    animation: popIn 0.5s ease-out;
+    text-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00; /* Glow hijau saat benar */
+}
+
+.animate-wrong {
+    animation: shake 0.3s;
+    text-shadow: 0 0 15px #ff0000, 0 0 25px #ff0000; /* Glow merah saat salah */
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    80% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-8px); } /* Guncangan lebih kuat */
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-8px); }
+    80% { transform: translateX(8px); }
+    100% { transform: translateX(0); }
+}
+
+/* Animasi Kemenangan Level (Level Up) */
+.levelup {
+    background: linear-gradient(45deg, #ffc107, #ff4081); /* Gradien emas ke pink */
+    color: #1a1a2e;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    animation: pulseGlow 1.5s infinite alternate; /* Animasi berkedip */
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.7), 0 0 50px rgba(255, 64, 129, 0.5);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(1.0); box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+    100% { transform: scale(1.02); box-shadow: 0 0 40px rgba(255, 255, 255, 1); }
+}
+
+/* GAYA BARU UNTUK TIMER */
+.time-display {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5em;
+    font-weight: 800;
+    color: #ffc107; /* Warna kuning/emas */
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px rgba(255, 193, 7, 0.7);
+}
+
+#timer {
+    color: #ff0000; /* Merah untuk rasa darurat */
+    transition: color 0.3s;
+}
+
+/* Tambahkan jika waktu hampir habis */
+#timer.critical {
+    animation: flashRed 0.5s infinite alternate;
+}
+
+@keyframes flashRed {
+    from { color: #ff0000; }
+    to { color: #ff8c00; }
+}
+/* (Sisanya kode CSS lama tetap sama) */
